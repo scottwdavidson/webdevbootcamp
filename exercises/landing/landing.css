@@ -1,0 +1,13 @@
+
+body {
+	background: url("https://source.unsplash.com/xulIYVIbYIc");
+	background-size: cover;
+	background-position: center;
+	font-family: Lato;
+}
+
+
+#pageContent {
+	text-align: center;
+	padding-top: 25%;
+}
