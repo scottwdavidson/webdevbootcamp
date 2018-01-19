@@ -1,0 +1,20 @@
+body {
+	background: #232323;
+}
+
+#container {
+	margin: 0 auto; /* 0 on top/bottom and auto forces it to center */
+	max-width: 600px;
+}
+
+.square {
+	width: 30%;
+	background: purple;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+}
+
+h1 {
+	color: white;
+}
