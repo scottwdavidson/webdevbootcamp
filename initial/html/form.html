@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Example Forms</title>
+</head>
+<body>
+
+	<h1>A Form</h1>
+
+	<form>
+		
+		<!-- Input w/in Label example -->
+<!-- 		<label>
+			Username:
+			<input type="text" name="username" placeholder="username">
+		</label>
+		<label>
+			Password:
+			<input type="password" name="password" placeholder="password">
+		</label>
+ -->
+ 		<!-- 
+			Form Attributes: 
+				** for/id : connects a label to the input it's associated with
+				** type   : the type of the input
+				** name   : the name of the value sent via HTTP command
+				** value  : a specific value associated to the name for checkbox, select
+				** placeholder : text hint w/in the input element
+				** required    : value is required
+ 		-->
+		<label for="username">Username:</label>
+		<input id="username" type="text" name="username" placeholder="username" required>
+		
+		<label for="password">Password:</label>
+		<input id="password" type="password" name="password" placeholder="password" required>
+
+		<select name="mood">
+			<option value="happy">:-)</option>
+			<option value="neutral">:-|</option>
+			<option value="sad">:-(</option>
+		</select>
+
+		<label>Cats:</label>
+		<input type="radio" name="petChoice" value="CATS">
+		<label>Dogs:</label>
+		<input type="radio" name="petChoice" value="DOGS">
+
+		<input type="submit">
+	</form>
+</body>
+</html>

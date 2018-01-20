@@ -1,0 +1,63 @@
+
+/* ***
+ * Key notes on font-size 
+ * 
+ * Often you'll want to set the top level font size through the body style. From there, everything would be relative using
+ * the em calculation. In this example: 
+ *   - body = 10px
+ *   - h1   = 50px
+ *   - p    = 20px
+ *   - span = 40px ( 2.0 x 20px)
+ */
+body {
+	font-size: 10px;
+}
+p {
+	font-family: Arial;
+}
+
+h1 {
+	font-family: Georgia;
+}
+
+h1 {
+	font-size: 5.0em;
+}
+
+p {
+	font-size: 2.0em;
+}
+span {
+	font-size: 2.0em;
+}
+
+/* ***
+ * Key notes on font-weight
+ *   - in general you can use italic, normal or bold
+ *   - some fonts support a weight between 100 - 800 ( increment by 100 )
+ */
+p {
+	font-weight: normal; /* no change or default */
+}
+
+p {
+	line-height: 2; /* makes the line spacing 2 lines */
+}
+
+/* text-align */
+
+p {
+	text-align: center; /* left, right, center */
+}
+
+h1 {
+	text-align: right;
+}
+
+/* text-decoration */
+h1 {
+	text-decoration: underline; 
+	text-decoration: line-through; /* note: 2nd settings overrides the 1st */
+}
+
+

@@ -1,0 +1,26 @@
+h1 {
+	border: 5px solid rgba(11,99,150,1);
+}
+
+li {
+	color: rgba(11,99,150,.6);
+	font-style: italic;
+}
+
+/*h4 {
+	color: rgba(0,200,100,.2);
+}
+*/
+h4 {
+	background: rgb(255,100,80)
+}
+
+body {
+
+	background: pink;
+/*	background: url("woodgrain.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+*/
+
+}
