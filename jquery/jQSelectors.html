@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Selectors</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+	<!-- ***************************
+	 * 
+	 * $(selection goes here)
+	 * 
+	 * jQuery "$()" is like document.querySelectAll() as it matches the criteria provided with an appropriate selection method.
+	 ****************************/ -->
+
+	 <h1>jQuery Selector Demo</h1>
+
+	 <ul>
+	 	<li>List item 1</li>
+	 	<li><a href="monkey.com">List item 2</a></li>
+	 	<li id="number3">List item 3</li>
+	 </ul>
+
+	 <a href="http://google.com">Google</a>
+
+	 <!--
+			** Basic Selector **
+		* $("a") : both the monkey and google anchors
+		* $("li a") : just the monkey
+		* $("#number3") : just the third list item
+
+			** CSS **
+		* $("h1").css("color","yellow"); : turns all H1's the color yellow
+		* (w/out jQuery) document.querySelector("h1").style.color = "orange"; : turns all H1's the color orange
+
+		* var styles = { color: "red", background: "pink", border: "2px solid purple" }
+		* $("h1").css(styles) : sets all three style properties onto the H1's
+
+		* $("li").css("color","steelblue"); : applies the color property to *all* li elements
+
+		* $("li").css({ fontSize: "10px", border: "2px dashed purple", background: "rgba(89, 24, 122, 0.5)" });
+			: create anonymous style object and pass directly into css
+
+	 -->
+</body>
+</html>
