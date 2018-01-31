@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pata</title>
+	<script type="text/javascript" src="../../../animation/paperjs/dist/paper-full.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.8/howler.core.min.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<link rel="stylesheet" type="text/css" href="pata.css">
+
+	<script type="text/paperscript" canvas="myCanvas">
+
+		var MAX_COLOR = 0xFFFFFF;
+		var MAX_ASCII = 127;
+		var KEY_EVENT_TO_COLOR_MULTIPLIER = 0x10101;
+
+		var circles = [];
+		var sound = new Howl({
+			src: ['assets/A/bubbles.mp3']
+		});
+		
+	    function randomScreenLocation() {
+	    	var randomPoint = Point.random() * maxScreenPoint();
+	    	return randomPoint;
+	    }
+
+	    function maxScreenPoint(){
+	    	return new Point(view.size.width, view.size.height);
+		}
+
+	    function centerScreenPoint(){
+	    	return new Point(view.center.x, view.center.y);
+		}
+
+	    function toRGB(rgb) { 
+	        var hex = Number(rgb).toString(16);
+	        if (hex.length < 2) {
+	             hex = "0" + hex;
+	        }
+	        return hex;
+	    }; 
+
+	    function toSixDigitRGB(rgb) { 
+	        var hex = Number(rgb).toString(16);
+	        for(var i=0; 6 - hex.length; i++){
+	        	hex = "0" + hex;
+	    	}
+	        return "#" + hex;
+	    }; 
+
+	    function randomColorInRgb(){
+	    	return toRGB(Math.floor(Math.random() * 255));
+		}
+
+	    function randomRgb(){
+	    	return "#" + randomColorInRgb() + randomColorInRgb() + randomColorInRgb();
+
+	    }
+
+		function radiusDestination(referencePoint){
+			return centerScreenPoint() + (centerScreenPoint() - referencePoint);
+			
+		}
+
+		function onKeyDown(event) {
+
+			if ( data[event.key] ){
+				var randomCenterPoint = randomScreenLocation();
+				var circle = new Path.Circle(randomCenterPoint,300);
+				circle.fillColor = data[event.key].color;
+				circles.push(circle);
+				data[event.key].sound.play();
+			}
+
+		}
+
+
+		function onFrame(event) {
+			for(var index = 0; index < circles.length; index+=1){
+				circles[index].scale(0.9);
+				circles[index].fillColor.hue += 1;
+				if(circles[index].area < 1) {
+					circles[index].remove(); // remove the circle from the canvas
+					circles.splice(index,1); // remove the circle from the array
+					index --;                // reset the index so we don't skip the "new" current circle
+				}
+			}
+		} 
+		
+
+
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>

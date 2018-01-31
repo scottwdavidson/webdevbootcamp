@@ -27,9 +27,13 @@ $("#newToDo").keypress(function(event){
 			var newToDoItem = $(this).val();
 
 			// Insert it at the end of the ul
-			$("ul").append($('<li>').append($('<span>').append("X")," " + newToDoItem));  
+			$("ul").append($('<li>').append($('<span>').append('<i class="fa fa-trash" aria-hidden="true"></i>')," " + newToDoItem));  
 
 			// Clear the input text box
 			$("#newToDo").val("");
 	}
+});
+
+$(".fa-plus").on("click", function(){
+	$("#newToDo").fadeToggle(1000);
 });
