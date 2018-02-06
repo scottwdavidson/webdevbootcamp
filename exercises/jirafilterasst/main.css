@@ -1,0 +1,22 @@
+.filterHeader {
+	color: steelblue;
+	text-align: left;
+}
+
+.lcontainer{
+    margin: 0 auto;
+	width: 700px;
+	height: 700px;
+
+}
+
+.lrow{
+    margin: 0 auto;
+	border: 1px dashed rgba(11,35,35,0.2);
+	padding: 10 10;
+
+}
+
+#jqlText {
+	width: 600px;
+}

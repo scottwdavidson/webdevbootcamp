@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JIRA Filter Assistant</title>
+
+	<!-- Include Required Prerequisites -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body>
+
+
+	<!-- JUMBOTRON -->
+	<div class="container">
+		<div class="jumbotron">
+			<h1><i class="fa fa-camera-retro" aria-hidden="true"></i>
+			JIRA Filter Assistant</h1>
+			<p>Making Altus and Raptor Analysis / Search Easy</p>
+		</div>
+
+		<!-- Images -->
+		<div class="row">
+
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="border: 2px solid gray">
+				<div class="projectSelect">
+					<div class="filterHeader">JIRA Project</div>
+					<select name="projectSelect" style="margin: 0 auto">
+						<option value="ALTUSADMIN" selected>Altus</option>
+						<option value="RAPTORSUP">Raptor</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+				<div class="filterHeader">Date Range</div>
+				<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+					<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+					<span></span> <b class="caret"></b>
+				</div>
+
+				<script type="text/javascript">
+					$(function() {
+
+						var start = moment().subtract(29, 'days');
+						var end = moment();
+
+						function cb(start, end) {
+							$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+						}
+
+						$('#reportrange').daterangepicker({
+							startDate: start,
+							endDate: end,
+							ranges: {
+								'Today': [moment(), moment()],
+								'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+								'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+								'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+								'This Month': [moment().startOf('month'), moment().endOf('month')],
+								'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+							}
+						}, cb);
+
+						cb(start, end);
+
+					});
+				</script>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+			</div>
+		</div>
+
+	</div> <!-- container -->
+
+	<script type="text/javascript" href="main.js"></script>
+
+</body>
+</html>
